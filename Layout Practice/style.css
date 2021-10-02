@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  color: #fff;
+  margin-top: 100px;
+}
+
+.box-big,
+.box-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-big {
+  background-color: red;
+  height: 400px;
+  flex: 3;
+}
+
+.box-small-container {
+  flex: 2;
+}
+
+.box-small {
+  height: 200px;
+}
+
+.box-small--1 {
+  background-color: green;
+}
+
+.box-small--2 {
+  background-color: blue;
+}
