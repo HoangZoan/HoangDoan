@@ -10,12 +10,12 @@
       type="module"
       src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
     ></script>
-    <script defer src="script.js"></script>
+    <!-- <script defer src="script.js"></script> -->
   </head>
   <body>
     <section class="section-login-form">
       <div class="form-container">
-        <div class="form-card">
+        <form class="form-card">
           <p class="form-title">Login</p>
           <div class="form-control">
             <label for="id">ID</label>
@@ -24,6 +24,7 @@
               type="text"
               placeholder="Type your Username or Email"
             />
+            <p class="error-text">abc</p>
           </div>
           <div class="form-control">
             <label for="password">Password</label>
@@ -32,6 +33,7 @@
               type="password"
               placeholder="Type your Password"
             />
+            <p class="error-text">abc</p>
           </div>
           <div class="form-control">
             <label for="confirm">Confirm Password</label>
@@ -40,11 +42,14 @@
               type="password"
               placeholder="Re-type your password"
             />
+            <p class="error-text">abc</p>
           </div>
           <a href="#" class="forgot-password-text">Quên mật khẩu?</a>
-          <button class="btn primary-btn" type="button">Đăng nhập</button>
+          <button type="submit" class="btn primary-btn" type="button">
+            Đăng nhập
+          </button>
           <button class="btn sub-btn" type="button">Đăng ký</button>
-        </div>
+        </form>
 
         <div class="form-notification hidden">
           <div class="notification-container">
@@ -55,6 +60,6 @@
       </div>
     </section>
 
-    <!-- <script src="./script.js"></script> -->
+    <script src="./script.js"></script>
   </body>
 </html>
