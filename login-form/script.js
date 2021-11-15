@@ -11,6 +11,7 @@ const userNameInputEl = document.getElementById("id");
 const passwordInputEl = document.getElementById("password");
 const confirmPasswordInputEl = document.getElementById("confirm");
 const eyeIconEls = document.querySelectorAll(".icon-eye");
+const loginSuccessEl = document.querySelector(".login-status-message");
 
 let isLoginForm = true;
 
@@ -29,6 +30,18 @@ const renderFormUI = () => {
   }
 };
 
+const restoreUI = () => {
+  [...formControlEls].forEach((el) => el.classList.remove("invalid"));
+  [userNameInputEl, passwordInputEl, confirmPasswordInputEl].forEach(
+    (el) => (el.value = "")
+  );
+  [...eyeIconEls].forEach((el) => el.setAttribute("name", "eye-off"));
+  [passwordInputEl, confirmPasswordInputEl].forEach((el) =>
+    el.setAttribute("type", "password")
+  );
+  loginSuccessEl.classList.add("hidden");
+};
+
 // Action buttons
 const actionsBtnHandler = () => {
   subBtnEl.addEventListener("click", () => {
@@ -36,14 +49,7 @@ const actionsBtnHandler = () => {
     isLoginForm = !isLoginForm;
 
     // Clear old UI state
-    [...formControlEls].forEach((el) => el.classList.remove("invalid"));
-    [userNameInputEl, passwordInputEl, confirmPasswordInputEl].forEach(
-      (el) => (el.value = "")
-    );
-    [...eyeIconEls].forEach((el) => el.setAttribute("name", "eye-off"));
-    [passwordInputEl, confirmPasswordInputEl].forEach((el) =>
-      el.setAttribute("type", "password")
-    );
+    restoreUI();
 
     // Rerender UI
     renderFormUI();
@@ -51,60 +57,88 @@ const actionsBtnHandler = () => {
 };
 
 // Validation + Submit
-const validateAndSubmitForm = () => {
-  const renderInputError = (inputEl, message, clearError = false) => {
-    const controlEl = inputEl.closest(".form-control");
-    const errorTextEl = controlEl.querySelector(".error-text");
+const renderInputError = (inputEl, message, clearError = false) => {
+  const controlEl = inputEl.closest(".form-control");
+  const errorTextEl = controlEl.querySelector(".error-text");
 
-    // Clear error state when use re-type inputs
-    if (clearError) {
-      controlEl.classList.remove("invalid");
-      return;
-    }
+  // Clear error state when use re-type inputs
+  if (clearError) {
+    controlEl.classList.remove("invalid");
+    return;
+  }
 
-    controlEl.classList.add("invalid");
-    errorTextEl.textContent = message;
-  };
+  controlEl.classList.add("invalid");
+  errorTextEl.textContent = message;
+};
 
-  const validateInputs = () => {
-    const userNameValue = userNameInputEl.value;
-    const passwordValue = passwordInputEl.value;
-    const confirmPasswordValue = confirmPasswordInputEl.value;
-    let inputsAreValid = true;
+const validateInputs = () => {
+  const userNameValue = userNameInputEl.value;
+  const passwordValue = passwordInputEl.value;
+  const confirmPasswordValue = confirmPasswordInputEl.value;
+  let inputsAreValid = true;
 
-    if (userNameValue.trim().length === 0) {
-      renderInputError(userNameInputEl, "Username must not be empty");
-      inputsAreValid = false;
-    }
+  if (userNameValue.trim().length === 0) {
+    renderInputError(userNameInputEl, "Username must not be empty");
+    inputsAreValid = false;
+  }
 
-    if (passwordValue.trim().length < 6 || passwordValue.trim().length > 32) {
-      renderInputError(passwordInputEl, "Password must be 6 to 32 charaters");
-      inputsAreValid = false;
-    }
+  if (passwordValue.trim().length < 6 || passwordValue.trim().length > 32) {
+    renderInputError(passwordInputEl, "Password must be 6 to 32 charaters");
+    inputsAreValid = false;
+  }
 
-    if (!isLoginForm && confirmPasswordValue !== passwordValue) {
-      renderInputError(
-        confirmPasswordInputEl,
-        "Confirm password must match the password"
-      );
-      inputsAreValid = false;
-    }
+  if (!isLoginForm && confirmPasswordValue !== passwordValue) {
+    renderInputError(
+      confirmPasswordInputEl,
+      "Confirm password must match the password"
+    );
+    inputsAreValid = false;
+  }
 
-    return inputsAreValid;
-  };
+  return inputsAreValid;
+};
 
-  // Set event listener when user press key to type new input, then clear the prior error state
-  [userNameInputEl, passwordInputEl, confirmPasswordInputEl].forEach((el) =>
-    el.addEventListener("keypress", (event) => {
-      renderInputError(event.target, null, true);
-    })
-  );
+// Set event listener when user press key to type new input, then clear the prior error state
+[userNameInputEl, passwordInputEl, confirmPasswordInputEl].forEach((el) =>
+  el.addEventListener("keydown", (event) => {
+    renderInputError(event.target, null, true);
+  })
+);
 
-  const renderNotiMessage = () => {};
+const renderNotiMessage = (loginSuccess) => {
+  const loginSuccessText = loginSuccessEl.querySelector("span");
+  const loginSuccessIcon = loginSuccessEl.querySelector("ion-icon");
+  if (!isLoginForm) return;
 
+  loginSuccessEl.classList.remove("hidden");
+
+  loginSuccessText.textContent = loginSuccess
+    ? "Đăng nhập thành công!"
+    : "Đăng nhập không thành công";
+
+  loginSuccessIcon.style.color = loginSuccess ? "green" : "red";
+
+  if (loginSuccess) {
+    loginSuccessIcon.setAttribute("name", "checkmark-circle");
+  } else {
+    loginSuccessIcon.setAttribute("name", "alert");
+  }
+};
+
+const submitFormHandler = () => {
   formCardEl.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(validateInputs());
+
+    const formIsValid = validateInputs();
+    console.log(formIsValid);
+
+    renderNotiMessage(formIsValid);
+
+    // Show register success
+    if (formIsValid && !isLoginForm) {
+      formCardEl.classList.add("hidden");
+      formNotificationEl.classList.remove("hidden");
+    }
   });
 };
 
@@ -128,6 +162,6 @@ formCardEl.addEventListener("click", (event) => {
 const init = () => {
   actionsBtnHandler();
   renderFormUI();
-  validateAndSubmitForm();
+  submitFormHandler();
 };
 init();
