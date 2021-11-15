@@ -51,7 +51,7 @@ const actionsBtnHandler = () => {
     // Clear old UI state
     restoreUI();
 
-    // Rerender UI
+    // Re-render UI
     renderFormUI();
   });
 };
@@ -130,7 +130,6 @@ const submitFormHandler = () => {
     event.preventDefault();
 
     const formIsValid = validateInputs();
-    console.log(formIsValid);
 
     renderNotiMessage(formIsValid);
 
