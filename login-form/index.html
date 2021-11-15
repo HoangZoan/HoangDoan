@@ -10,7 +10,6 @@
       type="module"
       src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
     ></script>
-    <!-- <script defer src="script.js"></script> -->
   </head>
   <body>
     <section class="section-login-form">
@@ -24,31 +23,37 @@
               type="text"
               placeholder="Type your Username or Email"
             />
-            <p class="error-text">abc</p>
+            <p class="error-text"></p>
           </div>
           <div class="form-control">
             <label for="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Type your Password"
-            />
-            <p class="error-text">abc</p>
+            <div class="input-wrapper">
+              <input
+                id="password"
+                type="password"
+                placeholder="Type your Password"
+              />
+              <ion-icon class="icon-eye" name="eye-off"></ion-icon>
+            </div>
+            <p class="error-text"></p>
           </div>
           <div class="form-control">
-            <label for="confirm">Confirm Password</label>
-            <input
-              id="confirm"
-              type="password"
-              placeholder="Re-type your password"
-            />
-            <p class="error-text">abc</p>
+            <label for="confirm">Password</label>
+            <div class="input-wrapper">
+              <input
+                id="confirm"
+                type="password"
+                placeholder="Re-type your password"
+              />
+              <ion-icon class="icon-eye" name="eye-off"></ion-icon>
+            </div>
+            <p class="error-text"></p>
           </div>
           <a href="#" class="forgot-password-text">Quên mật khẩu?</a>
           <button type="submit" class="btn primary-btn" type="button">
             Đăng nhập
           </button>
-          <button class="btn sub-btn" type="button">Đăng ký</button>
+          <button type="button" class="btn sub-btn">Đăng ký</button>
         </form>
 
         <div class="form-notification hidden">

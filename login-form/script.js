@@ -6,11 +6,11 @@ const confirmInputEl = document.getElementById("confirm");
 const forgotPasswordEl = document.querySelector(".forgot-password-text");
 const primaryBtnEl = document.querySelector(".primary-btn");
 const subBtnEl = document.querySelector(".sub-btn");
-
 const formControlEls = document.querySelectorAll(".form-control");
 const userNameInputEl = document.getElementById("id");
 const passwordInputEl = document.getElementById("password");
 const confirmPasswordInputEl = document.getElementById("confirm");
+const eyeIconEls = document.querySelectorAll(".icon-eye");
 
 let isLoginForm = true;
 
@@ -32,11 +32,20 @@ const renderFormUI = () => {
 // Action buttons
 const actionsBtnHandler = () => {
   subBtnEl.addEventListener("click", () => {
+    // Set Form state
     isLoginForm = !isLoginForm;
+
+    // Clear old UI state
     [...formControlEls].forEach((el) => el.classList.remove("invalid"));
     [userNameInputEl, passwordInputEl, confirmPasswordInputEl].forEach(
       (el) => (el.value = "")
     );
+    [...eyeIconEls].forEach((el) => el.setAttribute("name", "eye-off"));
+    [passwordInputEl, confirmPasswordInputEl].forEach((el) =>
+      el.setAttribute("type", "password")
+    );
+
+    // Rerender UI
     renderFormUI();
   });
 };
@@ -47,6 +56,7 @@ const validateAndSubmitForm = () => {
     const controlEl = inputEl.closest(".form-control");
     const errorTextEl = controlEl.querySelector(".error-text");
 
+    // Clear error state when use re-type inputs
     if (clearError) {
       controlEl.classList.remove("invalid");
       return;
@@ -83,6 +93,7 @@ const validateAndSubmitForm = () => {
     return inputsAreValid;
   };
 
+  // Set event listener when user press key to type new input, then clear the prior error state
   [userNameInputEl, passwordInputEl, confirmPasswordInputEl].forEach((el) =>
     el.addEventListener("keypress", (event) => {
       renderInputError(event.target, null, true);
@@ -98,11 +109,25 @@ const validateAndSubmitForm = () => {
 };
 
 // Show/Hide Password
+formCardEl.addEventListener("click", (event) => {
+  const btn = event.target.closest(".icon-eye");
+  if (!btn) return;
+
+  const inputTargetEl = btn.parentElement.querySelector("input");
+
+  if (btn.getAttribute("name") === "eye") {
+    inputTargetEl.setAttribute("type", "password");
+    btn.setAttribute("name", "eye-off");
+  } else {
+    inputTargetEl.setAttribute("type", "text");
+    btn.setAttribute("name", "eye");
+  }
+});
 
 // Initialize app
 const init = () => {
   actionsBtnHandler();
   renderFormUI();
-  submitHandler();
+  validateAndSubmitForm();
 };
 init();
