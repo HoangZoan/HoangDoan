@@ -70,11 +70,9 @@ const renderResults = (score) => {
   if (score >= 23) status = "over-weight";
   if (score >= 25) status = "obese";
 
-  const {
-    id,
-    name: stateLevel,
-    adviceList,
-  } = RESULTS_DATA.find((result) => result.id === status);
+  const { name: stateLevel, adviceList } = RESULTS_DATA.find(
+    (result) => result.id === status
+  );
 
   resultScoreEl.textContent = score;
   resultStattusEl.textContent = stateLevel;
