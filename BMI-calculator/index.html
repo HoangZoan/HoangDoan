@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Tính chỉ số BMI</h1>
+      <div class="form-container">
+        <form class="form">
+          <div class="form-control">
+            <label for="height">Chiều cao (cm)</label>
+            <input name="heightValue" type="number" id="height" />
+          </div>
+          <div class="form-control">
+            <label for="weight">Cân nặng (kilogram)</label>
+            <input name="weightValue" type="number" id="weight" />
+          </div>
+          <button type="submit">Kiểm tra</button>
+        </form>
+
+        <div class="result-container hidden">
+          <h3 class="result-score">Chỉ số BMI của bạn: <span></span></h3>
+          <h3 class="result-status"></h3>
+
+          <div class="advice">
+            <h2 class="advice-heading">Lời khuyên:</h2>
+            <ul class="advice-content"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
