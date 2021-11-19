@@ -74,12 +74,10 @@ const functionBoxHandler = (symbol) => {
 const addNumberHandler = (number) => {
   if (!state.fnState) {
     // First parameter type in
-    if (stringIsTooLong(10)) return;
+    if (stringIsTooLong(10) && number !== "3.1415926535") return;
     if (state.display === "0") state.display = "";
 
     state.display += number;
-    if (state.display.slice(0, 2) === "-0" && state.display.length > 2)
-      state.display = "-" + number;
 
     // Imidiately show Pi number when user wants change in the first parameter
     if (number === "3.1415926535") {
