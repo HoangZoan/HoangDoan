@@ -10,6 +10,7 @@ const initialState = {
   fnState: null,
   firstParam: 0,
   secondParam: null,
+  displayError: false,
 };
 
 let state = {
@@ -17,6 +18,7 @@ let state = {
   fnState: null,
   firstParam: 0,
   secondParam: null,
+  displayError: false,
 };
 
 const stringIsTooLong = (maxLength) => {
@@ -33,12 +35,15 @@ const stringIsTooLong = (maxLength) => {
 };
 
 const renderDisplayApp = (reset = false) => {
-  displayContentEl.textContent =
-    stringIsTooLong(11) || state.display === "Infinity"
-      ? "Too large"
-      : state.display;
+  // Render main display
+  const stringIsInvalid = stringIsTooLong(11) || state.display === "Infinity";
+  if (stringIsInvalid) {
+    state.displayError = true;
+  }
+  displayContentEl.textContent = stringIsInvalid ? "Too large" : state.display;
   if (reset) state.secondParam = null;
 
+  // Render functions box
   [...fnSymbolEls].forEach((el) => {
     el.classList.remove("active");
     if (reset) return;
@@ -67,18 +72,19 @@ const functionBoxHandler = (symbol) => {
 };
 
 const addNumberHandler = (number) => {
-  if (state.display === "3.1415926535") {
-  }
-
   if (!state.fnState) {
     // First parameter type in
     if (stringIsTooLong(10)) return;
-
     if (state.display === "0") state.display = "";
 
     state.display += number;
     if (state.display.slice(0, 2) === "-0" && state.display.length > 2)
       state.display = "-" + number;
+
+    // Imidiately show Pi number when user wants change in the first parameter
+    if (number === "3.1415926535") {
+      state.display = "3.1415926535";
+    }
 
     state.firstParam = +state.display;
     renderDisplayApp();
@@ -92,7 +98,8 @@ const addNumberHandler = (number) => {
 
     state.display += number;
 
-    if (state.display === "03.1415926535") {
+    // Fix bug when type 'pi' button as display shows '0'
+    if (state.display.slice(-12) === "3.1415926535") {
       state.display = "3.1415926535";
     }
 
@@ -105,8 +112,10 @@ const showResult = (useUtility = false, utilityResult = null) => {
   let finalResult;
 
   if (useUtility) {
+    // For advance utilities
     finalResult = utilityResult;
   } else {
+    // For normal math functions
     if (!state.secondParam) return;
 
     switch (state.fnState) {
@@ -125,6 +134,7 @@ const showResult = (useUtility = false, utilityResult = null) => {
     }
   }
 
+  // Set the output result to the first parameter and re-clear state
   state.fnState = null;
   state.firstParam = finalResult;
   state.display = finalResult.toString();
@@ -151,12 +161,17 @@ const utilityHandler = (type) => {
 
   // On Pi button
   if (type === "pi") {
-    if (state.display === "0" || state.fnState) {
+    if (
+      state.display === "0" ||
+      state.fnState ||
+      (!state.fnState && state.firstParam)
+    ) {
       addNumberHandler(Math.PI.toString().slice(0, 12));
     }
     return;
   }
 
+  // On other utility functions
   switch (type) {
     case "fractional":
       targetnumber = calcFractional(+state.display);
@@ -172,6 +187,7 @@ const utilityHandler = (type) => {
       break;
   }
 
+  // When the output result is too large or infinity, set dummy number value to make the display show "Too large"
   if (
     targetnumber.toString().indexOf("e+") !== -1 ||
     state.display === "Infinity"
@@ -225,6 +241,11 @@ const checkButtonType = (btnEl, matchName, matchType) => {
 
 // All keys event function
 const allKeysPressEvent = (btn) => {
+  if (state.displayError) {
+    clearAll();
+    state.displayError = false;
+  }
+
   // On numbers
   if (checkButtonType(btn, "btn--number")) {
     addNumberHandler(btn.textContent);
