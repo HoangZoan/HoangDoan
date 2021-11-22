@@ -1,0 +1,156 @@
+:root {
+  --color-primary: #2ecc71;
+  --color-primary-dark: #28b062;
+
+  --color-backdrop: #fffaeb;
+
+  --color-text: #4c4c4c;
+  --color-text-light: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.7;
+  background-color: var(--color-backdrop);
+  color: var(--color-text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 48px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  column-gap: 48px;
+  row-gap: 36px;
+}
+
+.product-card {
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+.product {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-container {
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s;
+}
+
+.product-detail {
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 24px;
+}
+
+.brand {
+  font-size: 24px;
+}
+
+.title {
+  font-size: 16px;
+  margin-top: 8px;
+  flex: 1;
+}
+
+.price {
+  margin-top: 18px;
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.rating-stars {
+  color: #fdcb6e;
+  margin-top: 2px;
+}
+
+.icon-star {
+  margin: 0 -2px;
+}
+
+.divider {
+  height: 18px;
+  width: 1px;
+  background-color: var(--color-text-light);
+  margin: 0 12px;
+}
+
+.sold {
+  color: var(--color-text-light);
+  font-size: 13px;
+}
+
+.add-cart-btn {
+  display: block;
+  width: 100%;
+  padding: 16px 0;
+  border: none;
+  background-color: var(--color-primary);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-cart-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 0.8fr));
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 0 120px;
+  }
+}
