@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress bar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      .bar-container {
+        margin: 0 auto;
+        margin-top: 240px;
+        background-color: gray;
+        height: 30px;
+        width: 80%;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .bar {
+        height: 100%;
+        width: 0;
+        background-color: #0984e3;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loading-layout {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% + 50px);
+        height: 100%;
+        background-image: repeating-linear-gradient(
+          45deg,
+          #7ac2fa 5px,
+          #7ac2fa 10px,
+          transparent 10px,
+          transparent 15px
+        );
+        animation: slidesIn 1s linear infinite forwards;
+      }
+
+      .text {
+        color: white;
+        line-height: 30px;
+        display: none;
+        animation: fadesIn 0.6s;
+        z-index: 10;
+        position: relative;
+      }
+
+      .controlers {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .btn {
+        border: none;
+        background-color: #13cb98;
+        color: #fff;
+      }
+
+      .btn:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .btn:hover {
+        color: #fff;
+        background-color: #65f0c9;
+      }
+
+      @keyframes expand {
+        0% {
+          width: 0;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+
+      @keyframes fadesIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slidesIn {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-43px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bar-container">
+        <div class="bar">
+          <div class="loading-layout"></div>
+          <span class="text">50%</span>
+        </div>
+      </div>
+
+      <div class="controlers">
+        <button class="btn btn--start">Start</button>
+        <button class="btn btn--pause">Pause</button>
+        <button class="btn btn--reset">Reset</button>
+      </div>
+    </div>
+
+    <script>
+      const barEl = document.querySelector(".bar");
+      const controllersEl = document.querySelector(".controlers");
+      const barTextEl = document.querySelector(".text");
+      const loadingLayoutEl = document.querySelector(".loading-layout");
+      let running;
+      let counter = 0;
+      let curInterval = [];
+
+      const setCounterTimer = (stop = false) => {
+        const interval = setInterval(() => {
+          counter++;
+          barTextEl.textContent = counter + "%";
+
+          if (counter === 100) {
+            clearInterval(interval);
+            loadingLayoutEl.style.display = "none";
+          }
+        }, 60);
+
+        if (curInterval.length === 0) {
+          curInterval.push(interval);
+        } else {
+          curInterval[0] = interval;
+        }
+      };
+
+      // Buttons events handler
+      controllersEl.addEventListener("click", (event) => {
+        const btn = event.target.closest(".btn");
+        if (!btn) return;
+
+        if (btn.classList.contains("btn--start")) {
+          if (counter === 100 || running) return;
+          barEl.style.animation = "expand 6s linear forwards running";
+          barTextEl.style.display = "block";
+          setCounterTimer();
+          running = true;
+          loadingLayoutEl.style.display = "block";
+        }
+
+        if (btn.classList.contains("btn--pause")) {
+          barEl.style.animationPlayState = "paused";
+          clearInterval(curInterval[0]);
+          running = false;
+        }
+
+        if (btn.classList.contains("btn--reset")) {
+          barEl.style.animation = "none";
+          barTextEl.style.display = "none";
+          clearInterval(curInterval[0]);
+          loadingLayoutEl.style.display = "none";
+          counter = 0;
+          running = false;
+        }
+      });
+    </script>
+  </body>
+</html>
