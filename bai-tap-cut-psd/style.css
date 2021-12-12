@@ -1,0 +1,298 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.heading-intro {
+  margin-bottom: 25px;
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #b4ad9e;
+  font-size: 14px;
+}
+
+.heading-secondary {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.section-header,
+.section-intro,
+.section-posts {
+  padding: 0 64px;
+}
+
+/* Header */
+.section-header {
+  margin: 70px auto 100px;
+  max-width: 1062px;
+}
+
+.header-nav {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.logo {
+  font-family: "Inconsolata", monospace;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.nav-list {
+  display: flex;
+  animation: fadesIn 0.3s;
+}
+
+@keyframes fadesIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.nav-list li {
+  padding: 4px 16px;
+  transition: all 0.3s;
+}
+
+.nav-list li:hover {
+  background-color: #eee;
+}
+
+.nav-list li:not(:last-child) {
+  margin-right: 88px;
+}
+
+.header-nav label {
+  cursor: pointer;
+  display: none;
+}
+
+.header-nav input {
+  display: none;
+}
+
+.hero {
+  margin-top: 74px;
+  width: 100%;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+}
+
+/* Main */
+
+/* Intro */
+.section-intro,
+.section-posts {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.section-intro {
+  margin-bottom: 130px;
+}
+
+/* Posts */
+.section-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
+}
+
+.post-card {
+  margin-bottom: 130px;
+}
+
+.post-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+/* Call-to-action */
+.section-cta {
+  background-color: #f0f0f0;
+  padding: 70px 0;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-cta label {
+  margin-bottom: 70px;
+}
+
+.input-wrapper {
+  width: 400px;
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+
+.input-wrapper input {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  flex: 1;
+  padding: 14px 0;
+  padding-left: 3px;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+.input-wrapper button {
+  width: 40px;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+/* Button "Load more" */
+.btn-load-more {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 30px;
+  background-color: #fff;
+  border: 1px solid #000;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 1372px;
+  background-color: #f0f0f0;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.footer-left {
+  margin-left: 150px;
+}
+
+.footer-left a:not(:last-child) {
+  margin-right: 16px;
+}
+
+.footer-right {
+  margin-right: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-right img {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-right p,
+.footer-right img:not(:last-child) {
+  margin-right: 16px;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 1000px) {
+  .logo {
+    margin-right: auto;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    display: none;
+  }
+
+  .nav-list li {
+    padding: 12px 36px;
+  }
+
+  .nav-list li:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .header-nav label {
+    display: block;
+  }
+
+  .header-nav input:checked ~ .nav-list {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .section-posts {
+    grid-template-columns: 0.8fr;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .section-header,
+  .section-intro,
+  .section-posts {
+    padding: 0 40px;
+  }
+
+  .section-header {
+    margin-top: 12px;
+  }
+
+  .section-posts {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    margin: 0;
+  }
+
+  .footer-left {
+    margin-bottom: 12px;
+  }
+}
