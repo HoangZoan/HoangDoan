@@ -1,0 +1,145 @@
+@media only screen and (max-width: 1100px) {
+  .header__form-control {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__form-control input {
+    min-width: 60%;
+    margin-right: 0;
+    margin-bottom: 2.4rem;
+  }
+
+  .header__form-control button {
+    min-width: 60%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .heading--primary {
+    font-size: 5rem;
+  }
+
+  .heading--secondary {
+    font-size: 3rem;
+  }
+
+  .section-founder-address {
+    grid-template-columns: 0.7fr 1fr;
+  }
+
+  .features__description {
+    grid-template-columns: 1fr;
+  }
+
+  .features__description--right {
+    padding-top: 3.6rem;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .header {
+    background-position: 24% 50%;
+  }
+
+  .header .container {
+    padding: 0;
+  }
+
+  .header__form-control input {
+    min-width: 70%;
+  }
+
+  .header__form-control button {
+    min-width: 70%;
+  }
+
+  .section-features {
+    margin-top: 8.5rem;
+    margin-bottom: 8.5rem;
+  }
+
+  .features__description--left .heading--secondary {
+    margin-bottom: 3.2rem;
+  }
+
+  .features__description--right {
+    padding-bottom: 6.4rem;
+  }
+
+  .features__cards {
+    margin-top: 6.4rem;
+    grid-template-columns: 1fr;
+  }
+
+  .section-founder-address {
+    grid-template-columns: 1fr;
+    row-gap: 4.8rem;
+  }
+
+  .portrait-column {
+    order: 1;
+    /* justify-self: center; */
+  }
+
+  .portrait-column img {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .heading--primary {
+    font-size: 4rem;
+  }
+
+  .heading--secondary {
+    font-size: 2.4rem;
+  }
+
+  .header__form-control input {
+    min-width: 100%;
+  }
+
+  .header__form-control button {
+    min-width: 100%;
+  }
+
+  .text-column {
+    font-size: 2rem;
+  }
+
+  .founder-title {
+    font-size: 1.8rem;
+  }
+
+  .section-plans {
+    padding: 0 4.8rem;
+  }
+
+  .plans__cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__nav ul,
+  .footer__terms {
+    flex-direction: column;
+  }
+
+  .footer__nav ul li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 1.8rem;
+  }
+
+  .footer__terms li {
+    margin-bottom: 1.2rem;
+  }
+
+  .footer__terms li:first-child {
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .footer__terms li:not(:last-child) {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,110 @@
+:root {
+  /* Color palete */
+  --radiant-color: linear-gradient(to right, #fe985b, #fe4fa7);
+  --radiant-color-reverse: linear-gradient(to left, #fe985b, #fe4fa7);
+  --color-background-accect: #f6fafd;
+  --color-primary: #fe50a6;
+
+  /* Text */
+  --color-text-heading: #414141;
+  --color-text-basic: #6c6c6c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 4.8rem;
+}
+
+.container {
+  max-width: 117.3rem;
+  margin: 0 auto;
+  padding: 0 4.8rem;
+}
+
+/* ------------------------- */
+/* TEXT */
+.heading--secondary,
+.heading--tertiary {
+  color: var(--color-text-heading);
+}
+
+.heading--primary {
+  font-size: 5.5rem;
+}
+
+.heading--secondary {
+  font-size: 3.6rem;
+  line-height: 5.1rem;
+}
+
+.heading--tertiary {
+  font-size: 1.8rem;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  color: var(--color-text-basic);
+}
+
+.text-white {
+  color: #fff;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+/* ------------------------- */
+/* BUTTON */
+.btn {
+  font-size: 1.8rem;
+  border-radius: 0.4rem;
+  border: none;
+  padding: 1.6rem 5rem;
+  color: #414141;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.btn--primary {
+  color: #fff;
+  background-image: var(--radiant-color);
+}
+
+.btn--secondary-1 {
+  background-color: #fff;
+  border: 1px solid #979797;
+}
+
+.btn--secondary-2 {
+  background-color: #fff;
+}
+
+/* ------------------------- */
+/* UTILITIES */
