@@ -1,0 +1,26 @@
+{
+  "name": "techmaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "watch:sass": "sass sass/main.scss css/style.css -w --no-source-map",
+    "build:sass": "sass sass/main.scss css/style.css --no-source-map --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoangZoan/hoangdoan.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HoangZoan/hoangdoan.github.io/issues"
+  },
+  "homepage": "https://github.com/HoangZoan/hoangdoan.github.io#readme",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.45.2"
+  }
+}
