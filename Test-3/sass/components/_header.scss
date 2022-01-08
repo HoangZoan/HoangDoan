@@ -1,0 +1,482 @@
+.header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 16rem;
+
+  @include respond(sm) {
+    @include sectionsSpacingResponsive();
+  }
+}
+
+.header-top {
+  z-index: 30;
+}
+
+.hero,
+.header-form,
+.social-box {
+  z-index: 20;
+}
+
+.header-top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.8rem 0 1.2rem;
+  font-weight: 700;
+
+  @include respond(phone) {
+    padding-top: 2.4rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 2rem;
+    }
+
+    .organization-title {
+      font-size: 2.4rem;
+
+      @include respond(lg) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &__nav-bar {
+    @include respond(lg) {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      font-size: 1.4rem;
+      @include transition;
+
+      li:not(:last-child) {
+        margin-right: 4.3rem;
+      }
+
+      a:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__tools {
+    img {
+      height: 1.8rem;
+      width: 1.8rem;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+
+    .menu-popup {
+      input {
+        display: none;
+      }
+
+      input:checked ~ .menu-popup__list {
+        display: block;
+      }
+
+      .menu-icon {
+        display: none;
+        margin-right: 0;
+
+        @include respond(lg) {
+          display: inline-block;
+        }
+      }
+
+      &__list {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        right: $popup-menu-right;
+        transform: translateY(100%);
+        background-color: #fff;
+        width: 50%;
+        text-align: center;
+        border-radius: $border-radius;
+        transform-origin: top;
+        animation: fadesIn 0.3s ease-out;
+
+        @media only screen and (min-width: 68.75em) {
+          display: none !important;
+        }
+
+        @include respond(bg) {
+          width: calc(100% + 9.6rem);
+        }
+
+        &__item {
+          color: $color-text-gray--1;
+          font-size: 1.4rem;
+          position: relative;
+          @include transition;
+
+          &:not(:last-child)::after {
+            content: "";
+            width: 80%;
+            height: 1px;
+            background-color: $color-text-gray--2;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+          &:hover {
+            color: $color-primary;
+            background-color: darken(#fff, 5%);
+          }
+
+          a {
+            display: inline-block;
+            padding: 2rem 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  margin: 0 auto;
+  width: 75%;
+  font-weight: 700;
+  font-size: 1.6rem;
+  @include positionCenter;
+  top: 45%;
+
+  @include respond(lg) {
+    top: 40%;
+  }
+
+  @include respond(phone) {
+    top: 35%;
+  }
+
+  &__small-intro {
+    display: inline-block;
+    font-weight: 500;
+    margin-bottom: 2.2rem;
+    position: relative;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 1rem;
+
+    @include respond(phone) {
+      margin-bottom: 1.8rem;
+    }
+
+    @include respond(sm-phone) {
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__cta-link {
+    display: flex;
+    align-items: center;
+    margin-top: 2.8rem;
+
+    @include respond(phone) {
+      margin-top: 1.6rem;
+    }
+
+    img {
+      margin-right: 1.6rem;
+      height: 3.6rem;
+      width: 3.6rem;
+
+      @include respond(phone) {
+        height: 3rem;
+        width: 3rem;
+        margin-right: 1rem;
+      }
+
+      @include respond(sm-phone) {
+        height: 2.4rem;
+        width: 2.4rem;
+      }
+    }
+
+    p {
+      @include respond(phone) {
+        font-size: 1.6rem;
+      }
+
+      @include respond(sm-phone) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.header-form {
+  background-color: #fff;
+  border-radius: $border-radius;
+  width: 80%;
+  font-size: 2.2rem;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr max-content;
+  position: absolute;
+  bottom: 6.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include respond(xlg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond(xlg) {
+    width: 70%;
+  }
+
+  @include respond(bg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(sm) {
+    bottom: 16rem;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    font-size: 2rem;
+    bottom: 10rem;
+  }
+
+  @include respond(sm-phone) {
+    bottom: 8rem;
+  }
+
+  &__title {
+    padding: 4.2rem 0;
+
+    @include respond(xlg) {
+      padding: 2.4rem 0;
+      border-bottom: 1px solid #dfe4e8;
+      grid-column: 1 / -1;
+    }
+
+    @include respond(bg) {
+      padding: 1.6rem 0;
+      font-size: 2rem;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &__control {
+    text-align: center;
+    cursor: pointer;
+    @include transition;
+
+    &.divider {
+      border-left: 1px solid #dfe4e8;
+      border-right: 1px solid #dfe4e8;
+
+      @include respond(xlg) {
+        border-left: none;
+      }
+    }
+
+    &:hover {
+      background-color: darken(#fff, 5%);
+    }
+
+    label {
+      cursor: pointer;
+
+      @include respond(xlg) {
+        padding: 2.4rem 0;
+      }
+
+      @include respond(bg) {
+        padding: 1.6rem 0;
+      }
+
+      @include respond(phone) {
+        padding: 1rem 0;
+      }
+
+      p {
+        font-size: 1.4rem;
+        margin-bottom: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include respond(phone) {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        span {
+          margin-right: 0.8rem;
+        }
+      }
+
+      input {
+        background-color: transparent;
+        text-align: center;
+        border: none;
+        font-size: 2.2rem;
+        width: 100%;
+        cursor: pointer;
+
+        @include respond(phone) {
+          grid-template-columns: 1fr;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  button {
+    font-size: inherit;
+    padding: 0 10rem;
+    margin: 1rem;
+    cursor: pointer;
+
+    @include respond(bg) {
+      grid-column: 1 / -1;
+      padding: 1.8rem 0;
+    }
+  }
+}
+
+.social-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 6.4rem;
+  left: 4.8rem;
+
+  @include respond(sm) {
+    flex-direction: row;
+  }
+
+  @include respond(phone) {
+    bottom: 3.2rem;
+  }
+
+  @include respond(sm-phone) {
+    bottom: 1.8rem;
+    left: 2.8rem;
+  }
+
+  a {
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2.4rem;
+
+      @include respond(sm) {
+        margin-bottom: 0;
+        margin-right: 2.4rem;
+      }
+    }
+  }
+}
+
+.sliders {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+
+  &__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    @include transition(0.5s);
+
+    &:nth-child(1) {
+      background-image: $color-gradiant, url("../img/hero-1.png");
+      background-position: right;
+
+      @include respond(bg) {
+        background-image: $color-gradiant, url("../img/hero-1-port.png");
+        background-position: center;
+      }
+
+      @include respond(sm) {
+      }
+    }
+
+    &:nth-child(2) {
+      background-image: $color-gradiant, url("../img/hero-2.jpg");
+
+      @include respond(sm) {
+        background-image: $color-gradiant, url("../img/hero-2-port.jpg");
+      }
+    }
+
+    &:nth-child(3) {
+      background-image: $color-gradiant, url("../img/hero-3.jpg");
+
+      @include respond(sm) {
+        background-image: $color-gradiant, url("../img/hero-3-port.jpg");
+      }
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    right: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include respond(lg) {
+      display: none;
+    }
+
+    &__item {
+      height: 1.2rem;
+      width: 1.2rem;
+      border-radius: 50%;
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+      outline: 0.4rem solid transparent;
+      @include transition(0.5s);
+
+      &:not(:last-child) {
+        margin-bottom: 2.4rem;
+      }
+
+      &--active {
+        background-color: $color-primary;
+        outline: 0.4rem solid rgba($color-primary, 0.4);
+      }
+    }
+  }
+}

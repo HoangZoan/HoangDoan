@@ -1,0 +1,56 @@
+.latest-news {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28rem;
+
+  @include respond(sm) {
+    @include sectionsSpacingResponsive(lg);
+  }
+
+  & > .heading--secondary {
+    margin-bottom: 5.6rem;
+  }
+
+  &__cards {
+    @include grid-2-col;
+
+    &__item {
+      &:not(:last-child) {
+        @include respond(lg) {
+          margin-bottom: 5.2rem;
+        }
+
+        @include respond(phone) {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .news-date {
+        color: $color-text-gray--2;
+        font-size: 1.4rem;
+        margin-bottom: 3.4rem;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-bottom: 5rem;
+      }
+    }
+  }
+
+  a {
+    align-self: center;
+
+    button {
+      margin-top: 10rem;
+      cursor: pointer;
+      padding: 3rem 3.2rem;
+
+      @include respond(phone) {
+        padding: 2rem 2.4rem;
+      }
+    }
+  }
+}

@@ -1,3 +1,26 @@
+$color-primary: #23cf5f;
+$color-text-gray--1: #3e4c5b;
+$color-text-gray--2: #9aa8b6;
+$color-gradiant: linear-gradient(
+  to bottom,
+  #0d92c1 0%,
+  transparent 20%,
+  transparent 100%
+);
+
+$border-radius: 4px;
+
+$responsive-width-1-col: 80%;
+$responsive-grid-1-col: 0.8fr;
+$responsive-section-spacing-sm: 12rem;
+$responsive-section-spacing-2-sm: 16rem;
+$responsive-section-spacing-sm-phone: 7rem;
+$responsive-section-spacing-sm-phone-2: 11rem;
+
+$padding-container: 0 4.8rem;
+$padding-container-phone-sm: 0 2.8rem;
+$popup-menu-right: -4.8rem;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +29,201 @@
 
 html {
   font-size: 62.5%;
+
+  @include respond(phone) {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  @include transition;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  outline: none;
+}
+
+.container-full {
+  width: 100%;
+  padding: $padding-container;
+
+  @include respond(sm-phone) {
+    padding: $padding-container-phone-sm;
+  }
+}
+
+.container {
+  max-width: 117rem;
+  margin: 0 auto;
+  padding: $padding-container;
+
+  @include respond(sm-phone) {
+    padding: $padding-container-phone-sm;
+  }
+}
+
+// Typography
+.text-white {
+  color: #fff;
+}
+
+.heading--primary {
+  font-size: 6rem;
+  line-height: 7.6rem;
+
+  @include respond(lg) {
+    font-size: 4.8rem;
+  }
+
+  @include respond(phone) {
+    font-size: 4rem;
+    line-height: 6.4rem;
+  }
+
+  @include respond(sm-phone) {
+    font-size: 3.6rem;
+    line-height: 5.4rem;
+  }
+}
+
+.heading--secondary,
+.text-intro-small {
+  color: $color-text-gray--1;
+  margin-bottom: 4rem;
+
+  @include respond(lg) {
+    margin-bottom: 3rem;
+  }
+
+  @include respond(phone) {
+    margin-bottom: 2rem;
+  }
+
+  @include respond(sm-phone) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.heading--secondary,
+.text-intro-small,
+.text-link {
+  font-weight: 700;
+}
+
+.heading--secondary {
+  font-size: 5rem;
+  line-height: 6.1rem;
+
+  @include respond(lg) {
+    font-size: 3.6rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+  }
+}
+
+.paragraph {
+  line-height: 3.4rem;
+  color: $color-text-gray--2;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 4.8rem;
+
+  @include respond(lg) {
+    margin-bottom: 3.6rem;
+    font-size: 1.8rem;
+  }
+
+  @include respond(sm-phone) {
+    margin-bottom: 2.8rem;
+    line-height: 3rem;
+  }
+}
+
+.text-intro-small {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+}
+
+.text-link {
+  color: $color-primary;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  display: inline-block;
+
+  &:hover {
+    color: lighten($color-primary, 20%);
+    transform: translateY(-2px);
+  }
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.text--primary {
+  color: $color-primary;
+}
+
+.text--gray-1 {
+  color: $color-text-gray--1;
+}
+
+.text--gray-2 {
+  color: $color-text-gray--2;
+}
+
+// Button
+.btn--primary {
+  letter-spacing: 1px;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: $color-primary;
+  @include transition;
+
+  &:hover {
+    background-color: lighten($color-primary, 5%);
+  }
+}
+
+// Utilities
+.center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Animations
+@keyframes fadesIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,0 +1,86 @@
+.diagram {
+  display: flex;
+  margin-bottom: 24rem;
+
+  @include respond(bg) {
+    flex-direction: column;
+    width: $responsive-width-1-col;
+    margin: 0 auto;
+    margin-bottom: 24rem;
+  }
+
+  @include respond(sm) {
+    width: 100%;
+    @include sectionsSpacingResponsive(lg);
+  }
+
+  .number-text {
+    font-size: 8rem;
+    font-weight: 300;
+    color: $color-primary;
+    line-height: 9.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  &__left {
+    margin-right: 2.4rem;
+
+    @include respond(bg) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .heading--secondary,
+    .paragraph {
+      max-width: 47rem;
+
+      @include respond(bg) {
+        width: 100%;
+        max-width: 100rem;
+      }
+    }
+
+    .numbers-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      @include respond(lg) {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2.4rem;
+        column-gap: 4.8rem;
+      }
+
+      @include respond(phone) {
+        grid-template-columns: 0.8fr;
+      }
+
+      &__item {
+        .text-intro-small {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__right {
+    align-self: flex-end;
+
+    @include respond(bg) {
+      align-self: center;
+      margin-top: 6.4rem;
+    }
+
+    .big-number-box {
+      padding: 7.2rem 4rem;
+      border: 0.4rem solid $color-primary;
+
+      p {
+        color: #3e4c5b;
+        text-transform: uppercase;
+        font-size: 2.2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}

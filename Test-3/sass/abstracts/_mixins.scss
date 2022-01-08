@@ -1,37 +1,88 @@
 @mixin respond($breakpoint) {
   @if $breakpoint == xlg {
-    @media only screen and (max-width: 1300px) {
+    // <= 1300px
+    @media only screen and (max-width: 81.25em) {
       @content;
     }
   }
   @if $breakpoint == lg {
-    @media only screen and (max-width: 1100px) {
+    // <= 1100px
+    @media only screen and (max-width: 68.75em) {
       @content;
     }
   }
   @if $breakpoint == bg {
-    @media only screen and (max-width: 900px) {
-      @content;
-    }
-  }
-  @if $breakpoint == md {
-    @media only screen and (max-width: 860px) {
+    // <= 900px
+    @media only screen and (max-width: 56.25em) {
       @content;
     }
   }
   @if $breakpoint == sm {
-    @media only screen and (max-width: 700px) {
+    // <= 760px
+    @media only screen and (max-width: 47.5em) {
       @content;
     }
   }
   @if $breakpoint == phone {
-    @media only screen and (max-width: 540px) {
+    // <= 540px
+    @media only screen and (max-width: 33.75em) {
       @content;
     }
   }
   @if $breakpoint == sm-phone {
-    @media only screen and (max-width: 360px) {
+    // <= 360px
+    @media only screen and (max-width: 22.5em) {
       @content;
+    }
+  }
+}
+
+@mixin positionCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20rem;
+  align-items: center;
+
+  @include respond(xlg) {
+    column-gap: 10rem;
+  }
+
+  @include respond(lg) {
+    column-gap: 6rem;
+    grid-template-columns: $responsive-grid-1-col;
+    justify-content: center;
+    row-gap: 4.8rem;
+  }
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@mixin transition($time: 0.2s) {
+  transition: all $time;
+}
+
+@mixin sectionsSpacingResponsive($type: sm) {
+  @if $type == sm {
+    margin-bottom: $responsive-section-spacing-sm;
+
+    @include respond(sm-phone) {
+      margin-bottom: $responsive-section-spacing-sm-phone !important;
+    }
+  }
+  @if $type == lg {
+    margin-bottom: $responsive-section-spacing-2-sm;
+
+    @include respond(sm-phone) {
+      margin-bottom: $responsive-section-spacing-sm-phone-2 !important;
     }
   }
 }

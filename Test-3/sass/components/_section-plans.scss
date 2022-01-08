@@ -1,0 +1,33 @@
+.plans {
+  margin-bottom: 16rem;
+
+  @include respond(sm) {
+    @include sectionsSpacingResponsive();
+  }
+
+  &__item {
+    @include grid-2-col;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 10rem;
+
+      @include respond(phone) {
+        margin-bottom: 6.4rem;
+      }
+    }
+
+    &.reverse {
+      img {
+        @include respond(lg) {
+          grid-row: 1 / 2;
+        }
+      }
+    }
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

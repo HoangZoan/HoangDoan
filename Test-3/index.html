@@ -5,7 +5,262 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header container-full text-white">
+      <header class="header-top">
+        <a href="#" class="header-top__logo">
+          <img src="./icons/logo.svg" alt="Organization logo" />
+          <div class="organization-title">SOSTURTLE</div>
+        </a>
+        <nav class="header-top__nav-bar">
+          <ul>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">STORIES</a></li>
+            <li><a href="#">NEWS</a></li>
+            <li><a href="#">RESEARCH</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </nav>
+        <div class="header-top__tools">
+          <img src="./icons/scope.svg" alt="Find icon" />
+          <img src="./icons/globe.svg" alt="Globe icon" />
+
+          <label class="menu-popup" for="menu-popup">
+            <input type="checkbox" id="menu-popup" />
+            <img class="menu-icon" src="./icons/menu.png" alt="Menu icon" />
+
+            <ul class="menu-popup__list">
+              <li class="menu-popup__list__item"><a href="#">ABOUT</a></li>
+              <li class="menu-popup__list__item"><a href="#">STORIES</a></li>
+              <li class="menu-popup__list__item"><a href="#">NEWS</a></li>
+              <li class="menu-popup__list__item"><a href="#">RESEARCH</a></li>
+              <li class="menu-popup__list__item"><a href="#">BLOG</a></li>
+              <li class="menu-popup__list__item"><a href="#">CONTACT</a></li>
+            </ul>
+          </label>
+        </div>
+      </header>
+
+      <div class="hero">
+        <div class="hero__small-intro">WELCOME</div>
+        <h1 class="heading--primary">
+          Help Us Save<br />A Billion Baby Turtles!
+        </h1>
+        <a class="hero__cta-link">
+          <img src="./icons/play.svg" alt="Play button" class="play-button" />
+          <p>HOW WE USE YOUR DONATION</p>
+        </a>
+      </div>
+
+      <form class="header-form text--gray-1">
+        <div class="header-form__title center-items fw-500">
+          <span>Donate to save baby turtles</span>
+        </div>
+
+        <div class="header-form__control center-items divider">
+          <label for="donation"
+            ><p class="fw-400 text--gray-2">
+              <span>AMOUNT</span
+              ><img src="./icons/up-arrow.svg" alt="Arrow icon" />
+            </p>
+            <input
+              class="fw-500 text--gray-1"
+              type="text"
+              value="$20"
+              readonly
+            />
+          </label>
+        </div>
+        <div class="header-form__control center-items">
+          <label for="donation"
+            ><p class="fw-400 text--gray-2">
+              <span>PERIOD</span
+              ><img src="./icons/up-arrow.svg" alt="Arrow icon" />
+            </p>
+            <input
+              class="fw-500 text--gray-1"
+              type="text"
+              value="Monthly"
+              readonly
+            />
+          </label>
+        </div>
+        <button class="btn--primary fw-700">DONATE</button>
+      </form>
+
+      <div class="social-box">
+        <a href="#"><img src="./icons/facebook.svg" alt="Facebook icon" /></a>
+        <a href="#"><img src="./icons/twitter.svg" alt="Twitter icon" /></a>
+        <a href="#"><img src="./icons/internet.svg" alt="Internet icon" /></a>
+      </div>
+
+      <div class="sliders">
+        <div class="sliders__item"></div>
+        <div class="sliders__item"></div>
+        <div class="sliders__item"></div>
+
+        <div class="sliders__dots"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="plans">
+        <figure class="plans__item">
+          <img src="./img/plan-1.png" alt="Project photo" />
+          <div class="text-box">
+            <h4 class="text-intro-small">projects</h4>
+            <h2 class="heading--secondary">SOS Turtle Conservations Tours</h2>
+            <p class="paragraph">
+              Unique opportunities to participate in wildlife conservation
+              programs. Check out our hands-on tours to Costa Rica, Cuba,
+              Mexico, and more.
+            </p>
+            <a href="#" class="text-link"><span>upcoming turtle tours</span></a>
+          </div>
+        </figure>
+        <figure class="plans__item reverse">
+          <div class="text-box">
+            <h4 class="text-intro-small">projects</h4>
+            <h2 class="heading--secondary">SOS Turtle Conservations Tours</h2>
+            <p class="paragraph">
+              Unique opportunities to participate in wildlife conservation
+              programs. Check out our hands-on tours to Costa Rica, Cuba,
+              Mexico, and more.
+            </p>
+            <a href="#" class="text-link"><span>upcoming turtle tours</span></a>
+          </div>
+          <img src="./img/plan-1.png" alt="Project photo" />
+        </figure>
+      </section>
+
+      <section class="diagram">
+        <div class="diagram__left">
+          <h2 class="heading--secondary">BILLION BABY TURTLES</h2>
+          <p class="paragraph">
+            We protect endangered sea turtles throughout Latin America and the
+            world by supporting community-based conservation eforts.
+          </p>
+          <div class="numbers-box">
+            <div class="numbers-box__item">
+              <div class="number-text">09</div>
+              <div class="text-intro-small">
+                grants to conservation organizations
+              </div>
+            </div>
+            <div class="numbers-box__item">
+              <div class="number-text">10</div>
+              <div class="text-intro-small">
+                turtle nesting beaches supported
+              </div>
+            </div>
+            <div class="numbers-box__item">
+              <div class="number-text">05</div>
+              <div class="text-intro-small">
+                species of sea turtles protected
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="diagram__right">
+          <div class="big-number-box">
+            <div class="number-text">407K</div>
+            <p>hatchlings saved</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="introduction-slider">
+        <div class="intro-slide">
+          <div class="intro-slide__left">
+            <img src="./img/slider.png" alt="Program photo" />
+          </div>
+          <div class="intro-slide__right">
+            <h4 class="text-intro-small">PROGRAMS</h4>
+            <h2 class="heading--secondary">SOS TURTLE CONSERVATION TRIPS</h2>
+            <p class="paragraph">
+              SOS Turtle Conservation Tours ofer the opportunity to see and
+              participate in sea turtle conservation programs around Latin
+              America. Our trips work with local researchers to help study and
+              protect turtles on the beach or at sea and every trip helps save
+              at least 100 hatchlings through our Billion Baby Turtles program.
+            </p>
+          </div>
+        </div>
+
+        <div class="intro-dots">
+          <div class="intro-dots__item intro-dots__item--active"></div>
+          <div class="intro-dots__item"></div>
+          <div class="intro-dots__item"></div>
+        </div>
+      </section>
+
+      <section class="latest-news">
+        <h2 class="heading--secondary">LATEST NEWS</h2>
+
+        <div class="latest-news__cards">
+          <div class="latest-news__cards__item">
+            <div class="text-intro-small">CAMPAIGN</div>
+            <h2 class="heading--secondary">Milman Islet Research</h2>
+            <div class="news-date">On June 12, 2018 / By Turtle Save</div>
+            <img src="./img/news-1.png" alt="News photo" />
+            <p class="paragraph">
+              Researchers have been monitoring nesting turtle populations on
+              Milman Islet for over 25 years. It is a small sandy cay within the
+              Denham groups of Islands in the northern Great…
+            </p>
+            <a href="#" class="text-link">continue reading</a>
+          </div>
+          <div class="latest-news__cards__item">
+            <div class="text-intro-small">VOLUNTARY POSITIONS</div>
+            <h2 class="heading--secondary">Project Assistant Volunteer</h2>
+            <div class="news-date">On February 10, 2018 / By Turtle Save</div>
+            <img src="./img/news-2.png" alt="News photo" />
+            <p class="paragraph">
+              We are now looking for a Project Assistant to undertake research,
+              prepare information (including written communications and
+              documentation) and provide fundraising, program…
+            </p>
+            <a href="#" class="text-link">continue reading</a>
+          </div>
+        </div>
+
+        <a href="#"><button class="btn--primary">MORE NEWS</button></a>
+      </section>
+    </main>
+
+    <footer class="footer container-full">
+      <div class="footer__cta">
+        <p class="footer__cta__intro fw-500">
+          <span>Sign up for monthly news, fun promotions,</span><br /><span
+            class="text--primary"
+            >and ways to help save turtles!
+          </span>
+        </p>
+
+        <form class="footer__cta__form">
+          <input type="text" placeholder="Enter your email address" />
+          <button class="btn--primary">SUBSCRIBE</button>
+        </form>
+      </div>
+
+      <div class="footer__end">
+        <div class="footer__end__author">
+          <span class="fw-700 text--gray-1">Created by Geovani Almeida</span>
+          <span class="fw-500 text--gray-2">CC 2018, Creative Commons 4.0</span>
+        </div>
+        <div class="footer__end__social-network">
+          <img src="./icons/social.svg" alt="Social icons" />
+        </div>
+      </div>
+    </footer>
+
+    <script src="./scripts/scripts.js"></script>
+  </body>
 </html>
