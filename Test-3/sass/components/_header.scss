@@ -6,6 +6,15 @@
 
   @include respond(sm) {
     @include sectionsSpacingResponsive();
+    height: 270vh;
+  }
+
+  @include respond(phone) {
+    height: 100vh;
+  }
+
+  @include respond(sm-phone) {
+    height: 112vh;
   }
 }
 

@@ -222,11 +222,22 @@ input {
 @media only screen and (max-width: 47.5em) {
   .header {
     margin-bottom: 12rem;
+    height: 270vh;
   }
 }
 @media only screen and (max-width: 47.5em) and (max-width: 22.5em) {
   .header {
     margin-bottom: 7rem !important;
+  }
+}
+@media only screen and (max-width: 33.75em) {
+  .header {
+    height: 100vh;
+  }
+}
+@media only screen and (max-width: 22.5em) {
+  .header {
+    height: 112vh;
   }
 }
 
