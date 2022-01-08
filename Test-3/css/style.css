@@ -932,6 +932,7 @@ input {
   width: 1.2rem;
   border-radius: 50%;
   background-color: #979797;
+  cursor: pointer;
 }
 .introduction-slider .intro-dots__item:not(:last-child) {
   margin-right: 2.8rem;
