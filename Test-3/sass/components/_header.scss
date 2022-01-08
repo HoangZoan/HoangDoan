@@ -417,11 +417,11 @@
     @include transition(0.5s);
 
     &:nth-child(1) {
-      background-image: $color-gradiant, url("../img/hero-1.png");
+      background-image: $color-gradiant, url("../img/hero-1.jpg");
       background-position: right;
 
       @include respond(bg) {
-        background-image: $color-gradiant, url("../img/hero-1-port.png");
+        background-image: $color-gradiant, url("../img/hero-1-port.jpg");
         background-position: center;
       }
 
