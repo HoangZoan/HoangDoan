@@ -4,9 +4,16 @@
   width: 100%;
   margin-bottom: 16rem;
 
+  @include respond(bg, landscape) {
+    height: 320vh;
+  }
+
+  @media only screen and (max-width: 36.25em) and (orientation: landscape) {
+    height: 320vh;
+  }
+
   @include respond(sm) {
     @include sectionsSpacingResponsive();
-    height: 270vh;
   }
 
   @include respond(phone) {

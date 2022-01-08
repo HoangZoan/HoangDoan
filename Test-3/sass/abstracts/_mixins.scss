@@ -1,38 +1,73 @@
-@mixin respond($breakpoint) {
-  @if $breakpoint == xlg {
-    // <= 1300px
-    @media only screen and (max-width: 81.25em) {
-      @content;
+@mixin respond($breakpoint, $orientation: none) {
+  @if $orientation == none {
+    @if $breakpoint == xlg {
+      // <= 1300px
+      @media only screen and (max-width: 81.25em) {
+        @content;
+      }
+    }
+    @if $breakpoint == lg {
+      // <= 1100px
+      @media only screen and (max-width: 68.75em) {
+        @content;
+      }
+    }
+    @if $breakpoint == bg {
+      // <= 900px
+      @media only screen and (max-width: 56.25em) {
+        @content;
+      }
+    }
+    @if $breakpoint == sm {
+      // <= 760px
+      @media only screen and (max-width: 47.5em) {
+        @content;
+      }
+    }
+    @if $breakpoint == phone {
+      // <= 540px
+      @media only screen and (max-width: 33.75em) {
+        @content;
+      }
+    }
+    @if $breakpoint == sm-phone {
+      // <= 360px
+      @media only screen and (max-width: 22.5em) {
+        @content;
+      }
     }
   }
-  @if $breakpoint == lg {
-    // <= 1100px
-    @media only screen and (max-width: 68.75em) {
-      @content;
+
+  @if $orientation != none {
+    @if $breakpoint == lg {
+      // <= 1100px
+      @media only screen and (max-width: 68.75em) and (orientation: $orientation) {
+        @content;
+      }
     }
-  }
-  @if $breakpoint == bg {
-    // <= 900px
-    @media only screen and (max-width: 56.25em) {
-      @content;
+    @if $breakpoint == bg {
+      // <= 900px
+      @media only screen and (max-width: 56.25em) and (orientation: $orientation) {
+        @content;
+      }
     }
-  }
-  @if $breakpoint == sm {
-    // <= 760px
-    @media only screen and (max-width: 47.5em) {
-      @content;
+    @if $breakpoint == sm {
+      // <= 760px
+      @media only screen and (max-width: 47.5em) and (orientation: $orientation) {
+        @content;
+      }
     }
-  }
-  @if $breakpoint == phone {
-    // <= 540px
-    @media only screen and (max-width: 33.75em) {
-      @content;
+    @if $breakpoint == phone {
+      // <= 540px
+      @media only screen and (max-width: 33.75em) and (orientation: $orientation) {
+        @content;
+      }
     }
-  }
-  @if $breakpoint == sm-phone {
-    // <= 360px
-    @media only screen and (max-width: 22.5em) {
-      @content;
+    @if $breakpoint == sm-phone {
+      // <= 360px
+      @media only screen and (max-width: 22.5em) and (orientation: $orientation) {
+        @content;
+      }
     }
   }
 }

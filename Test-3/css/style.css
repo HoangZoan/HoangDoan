@@ -219,10 +219,19 @@ input {
   width: 100%;
   margin-bottom: 16rem;
 }
+@media only screen and (max-width: 56.25em) and (orientation: landscape) {
+  .header {
+    height: 320vh;
+  }
+}
+@media only screen and (max-width: 36.25em) and (orientation: landscape) {
+  .header {
+    height: 320vh;
+  }
+}
 @media only screen and (max-width: 47.5em) {
   .header {
     margin-bottom: 12rem;
-    height: 270vh;
   }
 }
 @media only screen and (max-width: 47.5em) and (max-width: 22.5em) {
