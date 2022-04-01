@@ -1,0 +1,53 @@
+:root {
+  --color-primary: #f2eded;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+input,
+select {
+  border: none;
+}
+
+.background {
+  background-color: #dfe6e9;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-box {
+  background-color: white;
+  min-width: 420px;
+  padding: 48px 20px;
+}
+
+.input-title {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.submit-button {
+  font-family: inherit;
+  background-color: var(--color-primary);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 8px 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #645d5d;
+  color: white;
+  transition: all 0.2s;
+}
