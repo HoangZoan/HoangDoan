@@ -1,66 +1,173 @@
-class Blog extends React.Component {
-  render() {
-    return (
-      <div className="column">
-        <h3 className="heading">{this.props.title}</h3>
-        <p>
-          Blog là một nhật ký, một chủ đề, tâm sự, suy nghĩ của một cá nhân trên
-          internet. Ngày nay với sự phát triển internet thuật ngữ “blog” ngày
-          càng được phổ biến. Những người xây dựng viết blog được gọi là
-          blogger. Giờ đây khi blog thực sự kiếm ra tiền thì blog càng ngày được
-          ưa chuộng và trở thành công cụ tiếp thị hàng đầu trên internet hiện
-          nay.
-        </p>
-        <img src={this.props.image} alt={this.props.title} />
+function MenuItem(props) {
+  return (
+    <li>
+      <a href={props.url}>{props.title}</a>
+    </li>
+  );
+}
+
+function PokemonCard(props) {
+  return (
+    <li
+      style={{ boxShadow: "0 2px 4px rgba(0,0,0,0.25)", textAlign: "center" }}
+    >
+      <img src={props.image} alt={props.name} />
+      <div style={{ padding: "18px" }}>
+        <div>Name: {props.name}</div>
+        <div>Type: {props.type}</div>
       </div>
+    </li>
+  );
+}
+
+const menuData = [
+  {
+    title: "Phòng khách",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=living-room?arrange=most-purchased",
+  },
+  {
+    title: "Phòng ngủ",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=bed-room?arrange=most-purchased",
+  },
+  {
+    title: "Nhà bếp",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=kitchen?arrange=most-purchased",
+  },
+  {
+    title: "Trẻ em",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=kids?arrange=most-purchased",
+  },
+  {
+    title: "Sân vườn",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=garden?arrange=most-purchased",
+  },
+  {
+    title: "Thiết bị nội thất",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=appliances?arrange=most-purchased",
+  },
+  {
+    title: "Khuyến mãi",
+    url: "https://shophouse.netlify.app/pages/product-list.html?category=sale?arrange=most-purchased",
+  },
+];
+
+const pokedex = [
+  {
+    id: 1,
+    name: "Charmander",
+    type: "fire",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+  },
+  {
+    id: 2,
+    name: "Squirtle",
+    type: "water",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+  },
+  {
+    id: 3,
+    name: "Butterfree",
+    type: "flying",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
+  },
+  {
+    id: 4,
+    name: "Rattata",
+    type: "normal",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png",
+  },
+  {
+    id: 5,
+    name: "Metapod",
+    type: "bug",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
+  },
+];
+
+const category = [
+  {
+    href: "/user",
+    title: "User",
+    subMenu: [
+      {
+        href: "/user/information",
+        title: "User information",
+      },
+      {
+        href: "/user/purchase",
+        title: "User purchase",
+      },
+    ],
+  },
+  {
+    href: "/class",
+    title: "Class",
+    subMenu: [
+      {
+        href: "/user/front-end",
+        title: "Front-end",
+      },
+      {
+        href: "/user/back-end",
+        title: "Back-end",
+      },
+    ],
+  },
+  { href: "/", title: "Home" },
+];
+
+function MenuItemWithSubMenu({ subMenu, href, title }) {
+  if (subMenu) {
+    return (
+      <li className="menu-item">
+        <a href={href}>
+          <strong>{title}</strong>
+        </a>
+        <ul className="sub-menu">
+          {subMenu.map((sub, i) => (
+            <li key={sub.title} style={{ animationDelay: `${i * 1}s` }}>
+              <a href={sub.href}>- {sub.title}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    );
+  } else {
+    return (
+      <li className="menu-item">
+        <a href={href}>
+          <strong>{title}</strong>
+        </a>
+      </li>
     );
   }
 }
 
-function SubscribeButton(props) {
-  const { type = "main" } = props;
-
-  const buttonStyle = {
-    main: {
-      backgroundColor: "green",
-      color: "white",
-    },
-    secondary: {
-      backgroundColor: "yellow",
-    },
-  };
-
-  return (
-    <button
-      style={{
-        border: "none",
-        padding: "10px 24px",
-        ...buttonStyle[type],
-      }}
-    >
-      {props.title}
-    </button>
-  );
-}
-
 function App() {
   return (
-    <div className="app" style={{ maxWidth: "1200px", margin: "60px auto" }}>
-      <Blog
-        title="Blog là gì?"
-        image="https://emailbusiness.vn/wp-content/uploads/2020/08/blog-ca-nhan-768x403.jpg"
-      />
-      <Blog
-        title="Lịch sử của blog?"
-        image="https://emailbusiness.vn/wp-content/uploads/2020/08/phat-trien-website.jpg"
-      />
-      <Blog
-        title="Tăng phạm vi khách hàng"
-        image="https://emailbusiness.vn/wp-content/uploads/2020/08/content.png"
-      />
+    <div>
+      <ul className="menu-list">
+        {menuData.map(({ title, url }) => (
+          <MenuItem key={title} title={title} url={url} />
+        ))}
+      </ul>
 
-      <SubscribeButton type="main" title="Đăng ký ngay" />
-      <SubscribeButton type="secondary" title="Xem thêm" />
+      <ul className="pokedex-list">
+        {pokedex.map(({ id, name, type, image }) => (
+          <PokemonCard key={id} name={name} type={type} image={image} />
+        ))}
+      </ul>
+
+      <ul className="list-sub-menu">
+        {category.map(({ subMenu, href, title }) => (
+          <MenuItemWithSubMenu subMenu={subMenu} href={href} title={title} />
+        ))}
+      </ul>
     </div>
   );
 }

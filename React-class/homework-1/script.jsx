@@ -6,61 +6,55 @@ function BoxShadowContainer({ style, children, Component = "div" }) {
   );
 }
 
-function NumberInput(props) {
-  const icons = {
-    bill: "money-bills",
-    guests: "user-group",
-  };
-
+function FormField(props) {
   return (
     <div style={{ marginBottom: "18px" }}>
       <div className="input-title">{props.title}</div>
 
-      <BoxShadowContainer style={{ display: "flex" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "40px",
-            width: "40px",
-            backgroundColor: "var(--color-primary)",
-          }}
-        >
-          <i
-            style={{ fontSize: "12px", color: "#645D5D" }}
-            class={"fa-solid fa-" + icons[props.type]}
-          ></i>
-        </div>
-        <input type="number" style={{ flex: "1" }} />
-      </BoxShadowContainer>
+      {props.children}
     </div>
+  );
+}
+
+function NumberInput(props) {
+  return (
+    <BoxShadowContainer style={{ display: "flex" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "40px",
+          width: "40px",
+          backgroundColor: "var(--color-primary)",
+        }}
+      >
+        {props.icon}
+      </div>
+      <input type="number" style={{ flex: "1" }} />
+    </BoxShadowContainer>
   );
 }
 
 function Select(props) {
   return (
-    <div style={{ marginBottom: "18px" }}>
-      <div className="input-title">{props.title}</div>
-
-      <BoxShadowContainer
-        Component="select"
-        style={{
-          width: "100%",
-          height: "40px",
-          paddingLeft: "8px",
-          fontWeight: "600",
-          color: "#645D5D",
-        }}
-      >
-        <option value="">choose...</option>
-        {props.data.map(({ value, title }) => (
-          <option key={value} value={value}>
-            {value} - {title}
-          </option>
-        ))}
-      </BoxShadowContainer>
-    </div>
+    <BoxShadowContainer
+      Component="select"
+      style={{
+        width: "100%",
+        height: "40px",
+        paddingLeft: "8px",
+        fontWeight: "600",
+        color: "#645D5D",
+      }}
+    >
+      <option value="">choose...</option>
+      {props.data.map(({ value, title }) => (
+        <option key={value} value={value}>
+          {value} - {title}
+        </option>
+      ))}
+    </BoxShadowContainer>
   );
 }
 
@@ -95,10 +89,23 @@ function App() {
 
         <Divider style={{ marginBottom: "18px" }} />
 
-        <NumberInput title="Bill amount" type="bill" />
-        <NumberInput title="Number of guests" type="guests" />
+        <FormField title="Bill amount">
+          <NumberInput
+            icon={
+              <i className="input-icon" class="fa-solid fa-money-bills"></i>
+            }
+          />
+        </FormField>
 
-        <Select data={selectOptions} title="Service Quality" />
+        <FormField title="Number of guests">
+          <NumberInput
+            icon={<i className="input-icon" class="fa-solid fa-user-group"></i>}
+          />
+        </FormField>
+
+        <FormField title="Service Quality">
+          <Select data={selectOptions} />
+        </FormField>
 
         <Divider style={{ marginTop: "12px" }} />
 

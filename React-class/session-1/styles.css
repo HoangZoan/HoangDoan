@@ -4,6 +4,35 @@
   box-sizing: border-box;
 }
 
-.column {
-  margin-bottom: 32px;
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 24px 0;
+}
+
+.pokedex-list {
+  display: flex;
+  justify-content: center;
+}
+
+.pokedex-list li {
+  margin: 0 12px;
+}
+
+.list-sub-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-item {
+  margin: 60px 36px;
+  flex: 0 0 120px;
 }

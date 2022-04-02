@@ -51,3 +51,8 @@ select {
   color: white;
   transition: all 0.2s;
 }
+
+.input-icon {
+  font-size: 12px;
+  color: #645d5d;
+}
