@@ -1,3 +1,6 @@
+// Viết component tắt bật đèn bằng class
+///////////////////////////////////////
+
 // class App extends React.Component {
 //   state = {
 //     isOn: false,
@@ -6,12 +9,7 @@
 //   constructor() {
 //     super();
 
-//     // setInterval(() => {
-//     //   this.setState({
-//     //     count: this.state.count + 1,
-//     //   });
-//     // }, 1000);
-
+//     // Tắt bật đèn lặp đi lặp lại sau mỗi 3s
 //     // setInterval(() => {
 //     //   this.setState({
 //     //     isOn: !this.state.isOn,
@@ -47,13 +45,16 @@
 //   }
 // }
 
-function Bulb({ isOn }) {
-  return isOn ? (
-    <i className="bi bi-lightbulb-fill"></i>
-  ) : (
-    <i className="bi bi-lightbulb"></i>
-  );
-}
+// Giống như trên nhưng viết bằng function component
+///////////////////////////////////////
+
+// function Bulb({ isOn }) {
+//   return isOn ? (
+//     <i className="bi bi-lightbulb-fill"></i>
+//   ) : (
+//     <i className="bi bi-lightbulb"></i>
+//   );
+// }
 
 // function Button({ isOn, onClick }) {
 //   const label = isOn ? "Turn off" : "Turn on";
@@ -118,6 +119,8 @@ function Bulb({ isOn }) {
 //   );
 // }
 
+// Viết đồng hồ bấm giờ
+///////////////////////////////////////
 const Time = ({ value }) => {
   const { minutes, seconds, milliseconds } = value;
   return (
