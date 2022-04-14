@@ -1,0 +1,4 @@
+.content-layout {
+  display: grid;
+  grid-template-columns: 120px max-content;
+}
