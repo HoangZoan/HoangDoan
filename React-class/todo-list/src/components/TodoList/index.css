@@ -1,0 +1,66 @@
+.input-control {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.input-control input {
+  flex: 1;
+  font-size: inherit;
+  padding-left: 10px;
+  margin-right: 2px;
+  color: #b2b2b2;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.todos-list {
+  margin-bottom: 16px;
+}
+
+.todos-list li,
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todos-list li {
+  background-color: #f2f2f2;
+  padding-left: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.todos-list li .content {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.todos-list li:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.todos-list li button {
+  display: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
+  font-size: 14px;
+  animation: slidesInLeft 0.3s ease-out;
+}
+
+.todos-list li:hover button {
+  display: block;
+}
+
+@keyframes slidesInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

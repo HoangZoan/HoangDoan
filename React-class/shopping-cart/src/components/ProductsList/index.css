@@ -1,0 +1,51 @@
+/* Product List */
+.product-list {
+  margin-bottom: 6.4rem;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  margin: 2.4rem 0;
+}
+
+.product-item .text-content {
+  flex: 1;
+  margin-right: auto;
+  text-align: left;
+  margin-left: 1.5rem;
+}
+
+.product-name,
+.product-price {
+  margin-bottom: 0.8rem;
+}
+
+.product-name {
+  font-weight: 500;
+}
+
+.product-price {
+  color: rgb(97, 125, 152);
+}
+
+.product-item img {
+  height: 8rem;
+  width: 8rem;
+  object-fit: cover;
+}
+
+.product-quantity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-quantity i {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+.product-quantity span {
+  font-size: 2rem;
+}

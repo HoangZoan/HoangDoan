@@ -1,0 +1,17 @@
+/* Header */
+.header-nav {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 3.2rem;
+  padding: 2rem 3.2rem;
+}
+
+.header-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-bag {
+  position: relative;
+}

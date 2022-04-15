@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+.heading {
+  margin-bottom: 28px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  height: 100vh;
+  background-color: #ddd;
+}
+
+.todo-container {
+  background-color: white;
+  padding: 30px;
+  min-width: 500px;
+  border-radius: 5px;
+}
+
+.btn {
+  font-size: inherit;
+  color: white;
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn.primary,
+.btn.danger {
+  font-weight: 600;
+}
+
+.btn.primary {
+  background-color: #598df2;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.btn.danger {
+  background-color: #e45a5a;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.btn.danger.wide {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.btn.danger.delete {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
