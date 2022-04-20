@@ -1,0 +1,25 @@
+.pointer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background-color: black;
+  transition: all 0.6s;
+}
+
+.pointer.second {
+  height: 180px;
+  width: 3px;
+  background-color: green;
+  z-index: 10;
+}
+
+.pointer.minute {
+  height: 150px;
+  width: 5px;
+}
+
+.pointer.hour {
+  height: 120px;
+  width: 7px;
+}
