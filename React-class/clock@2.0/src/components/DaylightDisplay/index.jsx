@@ -4,47 +4,44 @@ import afternoonImg from "../../assets/images/afternoon.png";
 import nightImg from "../../assets/images/night.png";
 
 import "./index.css";
+import { useEffect, useState } from "react";
 
 function DaylightIcon({ hour }) {
-  let imgSrc, daytime;
+  const [daytime, setDaytime] = useState("");
+  const [imgSrc, setImgSrc] = useState(null);
+  const [classes, setClasses] = useState("daytime-box");
 
-  if (hour >= 4 && hour < 10) {
-    imgSrc = morningImg;
-    daytime = "Buổi sáng";
-  } else if (hour >= 10 && hour < 14) {
-    imgSrc = noonImg;
-    daytime = "Buổi Trưa";
-  } else if (hour >= 14 && hour < 16) {
-    imgSrc = afternoonImg;
-    daytime = "Buổi chiều";
-  } else {
-    imgSrc = nightImg;
-    daytime = "Buổi tối";
-  }
+  useEffect(() => {
+    setClasses("daytime-box animate-in");
+
+    setTimeout(() => {
+      setClasses("daytime-box");
+    }, 600);
+  }, [imgSrc]);
+
+  useEffect(() => {
+    if (hour >= 4 && hour < 10) {
+      setImgSrc(morningImg);
+      setDaytime("Buổi sáng");
+    } else if (hour >= 10 && hour < 14) {
+      setImgSrc(noonImg);
+      setDaytime("Buổi Trưa");
+    } else if (hour >= 14 && hour < 16) {
+      setImgSrc(afternoonImg);
+      setDaytime("Buổi chiều");
+    } else {
+      setImgSrc(nightImg);
+      setDaytime("Buổi tối");
+    }
+  }, [hour]);
 
   return (
-    <div className="daytime-box">
+    <div className={classes}>
       <img src={imgSrc} alt="Daylight image" />
       <div className="daytime-text">{daytime}</div>
     </div>
   );
 }
-
-const containerVariants = {
-  hidden: {
-    x: "50",
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { type: "spring", delay: 0.5 },
-  },
-  exit: {
-    x: "-50",
-    transition: { ease: "easeInOut" },
-  },
-};
 
 const dateOptions = {
   weekday: "long",
@@ -53,19 +50,22 @@ const dateOptions = {
   day: "numeric",
 };
 
-function DaylightDisplay({ hour, date }) {
+function DaylightDisplay({ hour, date, day }) {
+  const [dateTextClasses, setDateTextClasses] = useState("date-text");
+  useEffect(() => {
+    setDateTextClasses("date-text animate-in");
+
+    setTimeout(() => {
+      setDateTextClasses("date-text");
+    }, 600);
+  }, [day]);
+
   return (
     <div className="daylight-display">
-      <div className="date-text">
+      <div className={dateTextClasses}>
         {date.toLocaleString("vi-VI", dateOptions)}
       </div>
-      <DaylightIcon
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        hour={hour}
-      />
+      <DaylightIcon hour={hour} />
     </div>
   );
 }

@@ -13,6 +13,10 @@
   object-fit: cover;
 }
 
+.daytime-box.animate-in {
+  animation: fadesInLeft 0.6s ease-in;
+}
+
 .daytime-text {
   margin-top: 18px;
   text-align: center;
@@ -22,5 +26,20 @@
 
 .date-text {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 28px;
+}
+
+.date-text.animate-in {
+  animation: fadesInLeft 0.6s ease-in;
+}
+
+@keyframes fadesInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

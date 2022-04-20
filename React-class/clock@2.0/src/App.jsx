@@ -56,7 +56,11 @@ function App() {
   return (
     <div className="app">
       <ControllerDisplay>
-        <DaylightDisplay hour={dateTime.hours} date={dateTime.date} />
+        <DaylightDisplay
+          day={dateTime.day}
+          hour={dateTime.hours}
+          date={dateTime.date}
+        />
 
         <ButtonsGroup>
           {countriesData.map((data) => (
