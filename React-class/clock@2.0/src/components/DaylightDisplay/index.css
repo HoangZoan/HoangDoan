@@ -1,0 +1,26 @@
+.daylight-display {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.daylight-display img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  object-fit: cover;
+}
+
+.daytime-text {
+  margin-top: 18px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 21px;
+}
+
+.date-text {
+  font-weight: 400;
+  font-size: 32px;
+}

@@ -16,7 +16,7 @@ export function getClockTimeData(timeOffset) {
   const minutes = now.getMinutes();
   const hours = now.getHours();
 
-  return { seconds, minutes, hours };
+  return { seconds, minutes, hours, date: now };
 }
 
 export function getPointersRotateDegree(dateTime) {

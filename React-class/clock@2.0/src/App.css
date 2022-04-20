@@ -1,16 +1,30 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(to right bottom, #c2f9ea, #81ecec);
+  font-size: 20px;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .app {
   max-width: 1200px;
-  margin: 0 auto;
-  height: 100vh;
+  padding: 0 30px;
+  margin: 10vh auto;
+  height: 80vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
 }
 
 .app .clock {

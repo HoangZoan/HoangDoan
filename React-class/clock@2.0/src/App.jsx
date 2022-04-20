@@ -3,7 +3,8 @@ import {
   getClockTimeData,
   getPointersRotateDegree,
   fetchTimeZone,
-} from "./utils";
+} from "./utils/helpers";
+import ControllerDisplay from "./components/ControllerDisplay";
 import DaylightDisplay from "./components/DaylightDisplay";
 import Clock from "./components/Clock";
 import Pointer from "./components/Pointer";
@@ -19,12 +20,17 @@ const countriesData = [
   { name: "New York", timeZone: "America/New_York" },
 ];
 
-const initialData = countriesData[0].timeZone;
+const initialData = {
+  timezone: countriesData[0].timeZone,
+  timeOffset: "+07:00",
+};
 
 function App() {
-  const [dateTime, setDateTime] = useState(getClockTimeData("+07:00"));
-  const [timezone, setTimezone] = useState(initialData);
-  const [offset, setOffset] = useState("+07:00");
+  const [dateTime, setDateTime] = useState(
+    getClockTimeData(initialData.timeOffset)
+  );
+  const [timezone, setTimezone] = useState(initialData.timezone);
+  const [offset, setOffset] = useState(initialData.timeOffset);
 
   useEffect(() => {
     fetchTimeZone(timezone).then((data) => setOffset(data.utc_offset));
@@ -49,8 +55,8 @@ function App() {
 
   return (
     <div className="app">
-      <div>
-        <DaylightDisplay time={dateTime.hours} />
+      <ControllerDisplay>
+        <DaylightDisplay hour={dateTime.hours} date={dateTime.date} />
 
         <ButtonsGroup>
           {countriesData.map((data) => (
@@ -58,10 +64,11 @@ function App() {
               key={data.name}
               item={data}
               onButtonClick={handleButtonClick}
+              currentTimezone={timezone}
             />
           ))}
         </ButtonsGroup>
-      </div>
+      </ControllerDisplay>
 
       <Clock>
         <Pointer variant="second" rotate={secondRotation} />

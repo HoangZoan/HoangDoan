@@ -1,7 +1,14 @@
-function Button({ item, onButtonClick }) {
-  const { name, timeZone } = item;
+import "./index.css";
 
-  return <button onClick={() => onButtonClick(timeZone)}>{name}</button>;
+function Button({ item, onButtonClick, currentTimezone }) {
+  const { name, timeZone } = item;
+  const classes = `button ${timeZone === currentTimezone ? "selected" : ""}`;
+
+  return (
+    <button className={classes} onClick={() => onButtonClick(timeZone)}>
+      {name}
+    </button>
+  );
 }
 
 export default Button;
