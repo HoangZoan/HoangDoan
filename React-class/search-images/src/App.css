@@ -1,0 +1,24 @@
+:root {
+  --primary-color: #0984e3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.app {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 60px 0;
+}
+
+.heading {
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}

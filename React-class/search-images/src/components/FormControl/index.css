@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  font-size: 16px;
+  margin-bottom: 64px;
+}
+
+.form input {
+  width: 100%;
+  max-width: 360px;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  outline: none;
+  background-color: #ecf7fe;
+  font-size: inherit;
+  padding-left: 8px;
+  color: #4c4c4c;
+}
+
+.form button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  font-weight: 500;
+  font-size: inherit;
+  letter-spacing: 2px;
+}

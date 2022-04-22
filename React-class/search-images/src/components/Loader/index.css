@@ -1,0 +1,19 @@
+.loader {
+  text-align: center;
+  font-size: 28px;
+  color: var(--primary-color);
+  animation: fading 0.8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
