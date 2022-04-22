@@ -1,12 +1,20 @@
+import ImagesItem from "../ImagesItem";
+
 import "./index.css";
 
 function ImagesList({ items }) {
+  console.log(items);
   return (
     <ul className="images-list">
-      {items.map(({ id, alt_description, urls }) => (
-        <li key={id}>
-          <img src={urls.small_s3} alt={alt_description} />
-        </li>
+      {items.map(({ id, urls, alt_description, likes, user }) => (
+        <ImagesItem
+          key={id}
+          imageSrc={urls.small_s3}
+          alt_desc={alt_description}
+          likes={likes}
+          authorName={user.name}
+          profilePic={user.profile_image.medium}
+        />
       ))}
     </ul>
   );

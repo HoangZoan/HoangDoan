@@ -1,0 +1,51 @@
+.image-item {
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-item > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-item:hover .pic-details {
+  transform: translateY(0);
+}
+
+.pic-details {
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(100%);
+  transition: all 0.3s;
+}
+
+.pic-details img {
+  border-radius: 50%;
+  height: 56px;
+  width: 56px;
+}
+
+.pic-text {
+  color: white;
+}
+
+.author {
+  font-size: 21px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.likes {
+  font-size: 14px;
+}
