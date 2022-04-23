@@ -1,3 +1,4 @@
+import React from "react";
 import "./index.css";
 
 function FormControl({ handleSubmit, handleInputChange }) {
@@ -9,4 +10,4 @@ function FormControl({ handleSubmit, handleInputChange }) {
   );
 }
 
-export default FormControl;
+export default React.memo(FormControl);

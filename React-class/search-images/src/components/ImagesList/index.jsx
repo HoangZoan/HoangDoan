@@ -1,3 +1,4 @@
+import React from "react";
 import ImagesItem from "../ImagesItem";
 
 import "./index.css";
@@ -20,4 +21,4 @@ function ImagesList({ items }) {
   );
 }
 
-export default ImagesList;
+export default React.memo(ImagesList);

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import FormControl from "./components/FormControl";
 import ImagesList from "./components/ImagesList";
 import Loader from "./components/Loader";
@@ -55,15 +55,18 @@ function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [page, totalPages]);
 
-  function handleInputChange(e) {
+  const handleInputChange = useCallback((e) => {
     setSearch(e.target.value);
-  }
+  }, []);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
 
-    fetchImages(page);
-  }
+      fetchImages(page);
+    },
+    [page]
+  );
 
   return (
     <div className="app">
