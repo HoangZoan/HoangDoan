@@ -1,8 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import TodoList from "./components/TodoList";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([{ content: "a", id: 1 }]);
+  const [input, setInput] = useState("");
   const inputRef = useRef();
 
   const handleSubmit = (e) => {
@@ -16,11 +17,11 @@ function App() {
     inputRef.current.value = "";
   };
 
-  const handleDeleteTodo = (todoId) => {
+  const handleDeleteTodo = useCallback((todoId) => {
     const filteredTodos = todos.filter(({ id }) => id !== todoId);
 
     setTodos(filteredTodos);
-  };
+  }, []);
 
   const resetTodos = () => {
     setTodos([]);
@@ -33,7 +34,13 @@ function App() {
 
         <form onSubmit={handleSubmit}>
           <div className="input-control">
-            <input ref={inputRef} type="text" placeholder="Add new todo" />
+            <input
+              onChange={(e) => setInput(e.target.value)}
+              value={input}
+              ref={inputRef}
+              type="text"
+              placeholder="Add new todo"
+            />
             <button className="btn primary" type="submit">
               Add
             </button>
