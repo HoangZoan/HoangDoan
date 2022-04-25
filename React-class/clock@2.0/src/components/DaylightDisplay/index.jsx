@@ -4,9 +4,9 @@ import afternoonImg from "../../assets/images/afternoon.png";
 import nightImg from "../../assets/images/night.png";
 
 import "./index.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function DaylightIcon({ hour }) {
+const DaylightIcon = React.memo(({ hour }) => {
   const [daytime, setDaytime] = useState("");
   const [imgSrc, setImgSrc] = useState(null);
   const [classes, setClasses] = useState("daytime-box");
@@ -41,7 +41,7 @@ function DaylightIcon({ hour }) {
       <div className="daytime-text">{daytime}</div>
     </div>
   );
-}
+});
 
 const dateOptions = {
   weekday: "long",

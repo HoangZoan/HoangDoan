@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   getClockTimeData,
   getPointersRotateDegree,
@@ -49,9 +49,20 @@ function App() {
   const { secondRotation, minuteRotation, hourRotation } =
     getPointersRotateDegree(dateTime);
 
-  function handleButtonClick(tzone) {
+  const handleButtonClick = useCallback((tzone) => {
     setTimezone(tzone);
-  }
+  }, []);
+
+  const buttonsJSX = useMemo(() => {
+    return countriesData.map((data) => (
+      <Button
+        key={data.name}
+        item={data}
+        onButtonClick={handleButtonClick}
+        currentTimezone={timezone}
+      />
+    ));
+  }, [timezone]);
 
   return (
     <div className="app">
@@ -62,16 +73,7 @@ function App() {
           date={dateTime.date}
         />
 
-        <ButtonsGroup>
-          {countriesData.map((data) => (
-            <Button
-              key={data.name}
-              item={data}
-              onButtonClick={handleButtonClick}
-              currentTimezone={timezone}
-            />
-          ))}
-        </ButtonsGroup>
+        <ButtonsGroup>{buttonsJSX}</ButtonsGroup>
       </ControllerDisplay>
 
       <Clock>

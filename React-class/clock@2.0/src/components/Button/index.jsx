@@ -1,3 +1,4 @@
+import React from "react";
 import "./index.css";
 
 function Button({ item, onButtonClick, currentTimezone }) {
@@ -11,4 +12,4 @@ function Button({ item, onButtonClick, currentTimezone }) {
   );
 }
 
-export default Button;
+export default React.memo(Button);
