@@ -1,18 +1,17 @@
 import "./index.css";
+import HeaderCart from "../HeaderCart";
+import React from "react";
 
-function Header({ prodQuantity }) {
+function Header() {
   return (
     <nav className="header-nav">
       <div className="container">
         <div>UseReducer</div>
 
-        <div className="header-bag">
-          <i className="bi bi-handbag-fill"></i>
-          <span>{prodQuantity}</span>
-        </div>
+        <HeaderCart />
       </div>
     </nav>
   );
 }
 
-export default Header;
+export default React.memo(Header);

@@ -1,12 +1,16 @@
 import ProductListItem from "./ProductListItem";
+import { CartContext } from "../../stores/cartStore";
 
 import "./index.css";
+import { useContext } from "react";
 
-function ProductsList({ items, dispatch }) {
+function ProductsList() {
+  const { products } = useContext(CartContext);
+
   return (
     <ul className="product-list">
-      {items.map((item) => (
-        <ProductListItem key={item.id} item={item} dispatch={dispatch} />
+      {products.map((item) => (
+        <ProductListItem key={item.id} item={item} />
       ))}
     </ul>
   );

@@ -1,24 +1,9 @@
-import ActionType from "../../types/ActionType";
+import { useContext } from "react";
+import { CartContext } from "../../stores/cartStore";
 
-function ProductListItem({ item, dispatch }) {
+function ProductListItem({ item }) {
   const { name, price, id, imageSrc, quantity } = item;
-
-  function removeItemHandler(removeId) {
-    dispatch({ type: ActionType.removeItem, removeId });
-  }
-
-  function addMoreProductHandler(id) {
-    dispatch({ type: ActionType.addMoreItem, id });
-  }
-
-  function reduceProductHandler(id) {
-    if (quantity === 1) {
-      removeItemHandler(id);
-      return;
-    }
-
-    dispatch({ type: ActionType.reduceItem, id });
-  }
+  const { removeItem, addMoreItem, reduceItem } = useContext(CartContext);
 
   return (
     <li className="product-item">
@@ -29,7 +14,7 @@ function ProductListItem({ item, dispatch }) {
         <div className="product-price">${price}</div>
         <div
           className="btn-remove hover-color-light"
-          onClick={() => removeItemHandler(id)}
+          onClick={() => removeItem(id)}
         >
           remove
         </div>
@@ -38,12 +23,12 @@ function ProductListItem({ item, dispatch }) {
       <div className="product-quantity">
         <i
           className="bi bi-chevron-up hover-color-light"
-          onClick={() => addMoreProductHandler(id)}
+          onClick={() => addMoreItem(id)}
         ></i>
         <span>{quantity}</span>
         <i
           className="bi bi-chevron-down hover-color-light"
-          onClick={() => reduceProductHandler(id)}
+          onClick={() => reduceItem(id)}
         ></i>
       </div>
     </li>
