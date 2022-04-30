@@ -4,7 +4,6 @@ import ImagesItem from "../ImagesItem";
 import "./index.css";
 
 function ImagesList({ items }) {
-  console.log(items);
   return (
     <ul className="images-list">
       {items.map(({ id, urls, alt_description, likes, user }) => (

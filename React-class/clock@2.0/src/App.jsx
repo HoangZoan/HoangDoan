@@ -59,7 +59,7 @@ function App() {
         key={data.name}
         item={data}
         onButtonClick={handleButtonClick}
-        currentTimezone={timezone}
+        selected={data.timeZone === timezone}
       />
     ));
   }, [timezone]);

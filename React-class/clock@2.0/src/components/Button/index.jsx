@@ -1,9 +1,9 @@
 import React from "react";
 import "./index.css";
 
-function Button({ item, onButtonClick, currentTimezone }) {
+function Button({ item, onButtonClick, selected }) {
   const { name, timeZone } = item;
-  const classes = `button ${timeZone === currentTimezone ? "selected" : ""}`;
+  const classes = `button ${selected ? "selected" : ""}`;
 
   return (
     <button className={classes} onClick={() => onButtonClick(timeZone)}>
