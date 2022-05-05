@@ -3,18 +3,34 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav
-      style={{
-        maxWidth: "200px",
-        margin: "12px auto",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <Link to="/">Home</Link>
-      <Link to="/products">Products</Link>
-      <Link to="/about">About</Link>
-    </nav>
+    <div className="header">
+      <div className="container toolbar">
+        <div className="img-logo">
+          <img
+            src="https://theme.hstatic.net/200000053174/1000744395/14/logo.png?v=465"
+            alt="Logo"
+          />
+        </div>
+
+        <nav>
+          <Link className="nav-link" to="/">
+            Trang chủ
+          </Link>
+          <Link className="nav-link" to="/about">
+            Giới thiệu
+          </Link>
+          <Link className="nav-link" to="/products">
+            Sản phẩm
+          </Link>
+          <Link className="nav-link" to="/news">
+            Tin tức
+          </Link>
+          <Link className="nav-link" to="/contact">
+            Liên hệ
+          </Link>
+        </nav>
+      </div>
+    </div>
   );
 };
 

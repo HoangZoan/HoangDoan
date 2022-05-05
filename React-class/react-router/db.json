@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "images": "https://product.hstatic.net/200000053174/product/5apcb011ttt-399k__6__0c5647e8c1ed427a8dde0dc99ff01032_large.jpg",
+      "title": "Áo Polo Biman nam 5APCB011CAM",
+      "price": "250.000đ",
+      "description": "Kiểu dáng: Form Slim fit ôm vừa người, tôn dáng. Chất liệu: 95% CVC, 5% Spandex. Thiết kế: Không cúc, bo cổ thiết kế dệt tinh tế. Ưu điểm: Co dãn đàn hồi tốt, bền màu lâu"
+    },
+    {
+      "id": 2,
+      "images": "https://product.hstatic.net/200000053174/product/6qdgt002xah01-249k_3__f7c93c3c8e584871a46934eab55ff689_large.jpg",
+      "title": "Áo Polo nam 5APCT011XDU",
+      "price": "450.000đ",
+      "description": "Rất đẹp mắt"
+    }
+  ]
+}
